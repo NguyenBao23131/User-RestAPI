@@ -29,7 +29,8 @@ app.use(bodyParser.json({
 }));
 
 app.use(bodyParser.urlencoded({
-    extended: true
+    limit: "50mb",
+    extended: true,
 }));
 
 // Connect Server and DB
