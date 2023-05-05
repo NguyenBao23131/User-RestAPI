@@ -46,7 +46,7 @@ const connectDB = async () => {
             autoIndex: true,
             autoCreate: true,
         });
-        console.log("Connected to MongoDB successfully");
+        console.log("Connected to MongoDB successfully!");
     } catch (error) {
         console.log(`Error connecting to MongoDB: ${error.message}`);
         process.exit(1);
