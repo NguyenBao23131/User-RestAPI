@@ -48,10 +48,13 @@ export const getUserById = (id: string) => {
     userModel.findById(id);
 };
 
-export const createUser = (values: Record<string, any>) => {
-    new userModel(values)
-    .save().then((user) => user.toObject());
+export const createUser = async (values: Record<string, any>): Promise<any> => {
+    const user = new userModel(values);
+    const savedUser = await user.save();
+    
+    return savedUser.toObject();
 };
+
 
 export const deleteUserById = (id: string) => {
     userModel.findOneAndDelete({
