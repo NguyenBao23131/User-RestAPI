@@ -1,6 +1,7 @@
 import crypto from "crypto";
 
-const SECRET = "REST_API_TS"
+const SECRET = "REST_API_TS";
+
 
 export const random = (): string => {
     return crypto.randomBytes(128).toString('base64');

@@ -35,7 +35,7 @@ export const getUser = () => {
 };
 
 export const getUserByEmail = (email: string) => {
-    userModel.findOne({ email });
+    userModel.findOne({ email }).select('+authentication.salt +authentication.password');
 };
 
 export const getUserBySessionToken = (sessionToken: string) => {
@@ -51,7 +51,7 @@ export const getUserById = (id: string) => {
 export const createUser = async (values: Record<string, any>): Promise<any> => {
     const user = new userModel(values);
     const savedUser = await user.save();
-    
+
     return savedUser.toObject();
 };
 
