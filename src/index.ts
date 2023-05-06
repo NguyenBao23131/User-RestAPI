@@ -23,6 +23,8 @@ app.use(cors({
     credentials: true,
 }));
 
+app.use(express.json());
+
 app.use(compression());
 app.use(cookieParser());
 
@@ -37,6 +39,12 @@ app.use(bodyParser.urlencoded({
 
 // Router
 app.use('/api/v1', router());
+
+app.get('/', async (req, res) => {
+    res.status(200).json({
+        message: 'Hello from userAPI',
+    });
+})
 
 // Connect Server and DB
 const server = http.createServer(app);
