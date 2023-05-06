@@ -25,12 +25,6 @@ const userSchema = new mongoose.Schema({
             select: false,
         }
     },
-    createdAt: {
-        type: Date.UTC,
-    },
-    updatedAt: {
-        type: Date.UTC,
-    }
 });
 
 export const userModel = mongoose.model("User", userSchema);

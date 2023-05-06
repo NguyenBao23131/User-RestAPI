@@ -7,6 +7,8 @@ import cors from "cors";
 import * as dotenv from "dotenv";
 
 import mongoose from "mongoose";
+import router from "./router";
+
 
 // ConfigApp
 dotenv.config();
@@ -32,6 +34,9 @@ app.use(bodyParser.urlencoded({
     limit: "50mb",
     extended: true,
 }));
+
+// Router
+app.use('/api/v1', router());
 
 // Connect Server and DB
 const server = http.createServer(app);
